@@ -20,12 +20,16 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
-      - name: Check node_modules binaries
-        run: ls -la node_modules/.bin/
-
+        working-directory: frontend
+      
       - name: Build React app
         run: npm run build
+        working-directory: frontend
+      
+      - name: Check node_modules binaries
+        run: ls -la node_modules/.bin
+        working-directory: frontend
+
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
